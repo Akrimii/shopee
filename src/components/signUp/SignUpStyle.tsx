@@ -14,17 +14,20 @@ export const StyledAppBar = styled(AppBar)(() => ({
   position: "static",
   boxShadow: "none",
   height: "83px",
+  backgroundColor: "white",
+  minWidth: "1200px",
   display: "flex",
   justifyContent: "center",
-  backgroundColor: "whitesmoke",
-  width: "100vw",
-  minWidth: "1200px",
+  alignItems: "center",
 }));
 
 export const AppBarContainer = styled(Container)(() => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "baseline",
+  width: "1200px",
+  marginLeft: 0,
+  marginRight: 0,
 }));
 
 export const OrangeContainer = styled("div")(() => ({
@@ -51,7 +54,7 @@ export const StyledLink = styled(Link)(() => ({
 }));
 
 export const SignUpCard = styled(Card)(() => ({
-  backgroundColor: "whitesmoke",
+  backgroundColor: "white",
   height: "370px",
   width: "330px",
   boxShadow: "none",
@@ -67,11 +70,11 @@ export const NextButton = styled(Button)(() => ({
   backgroundColor: "#EE4D2D",
   width: "100%",
   boxShadow: "none",
-  color: "whitesmoke",
+  color: "white",
   borderRadius: "2px",
   ":hover": {
-    color: "whitesmoke",
-    backgroundColor: "rgba(238,77,45,0.7)",
+    backgroundColor: "#ee4d2d",
+    opacity: "0.8",
   },
 }));
 
