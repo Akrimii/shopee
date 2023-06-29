@@ -69,8 +69,8 @@ export const NextButton = styled(Button)(() => ({
   color: "white",
   borderRadius: "2px",
   ":disabled": {
-    color: "white",
-    backgroundColor: "rgba(238,77,45,0.7)",
+    backgroundColor: "#ee4d2d",
+    opacity: "0.8",
   },
 }));
 
