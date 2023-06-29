@@ -26,10 +26,9 @@ export const EachSection = styled("div")(() => ({
 }));
 
 export const WhiteBox = styled("div")(() => ({
-  width: "100%",
   borderTop: "5px solid #EE4D2D ",
   backgroundColor: "white",
-  paddingBottom: "50px",
+  width: "100vw",
 }));
 
 export const StyledLink = styled(Link)(() => ({

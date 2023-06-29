@@ -2,7 +2,9 @@ body {
   padding:0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #f2f2f2
+  background-color: #f2f2f2;
+  
+
 }
 
 .linearGradient{
@@ -12,6 +14,8 @@ body {
 .active {
   border:"1px solid purple"
 }
+
+
 
 
 
