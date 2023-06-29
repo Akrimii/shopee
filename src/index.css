@@ -1,0 +1,17 @@
+body {
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #f2f2f2
+}
+
+.linearGradient{
+  background: linear-gradient(to bottom, #EE4D2D 0%, #EE4D2D 50%, #FF6600 100%);
+}
+
+.active {
+  border:"1px solid purple"
+}
+
+
+

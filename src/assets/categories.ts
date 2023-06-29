@@ -1,0 +1,41 @@
+export const images: { [key: string]: string } = {
+  smartphones:
+    "https://down-my.img.susercontent.com/file/7ea3e07f2e6f57272c6641e4ce3f1632_tn",
+  laptops:
+    "https://down-my.img.susercontent.com/file/9adf5814aab1a1c241ca9310a4e48186_tn",
+  fragrances:
+    "https://down-my.img.susercontent.com/file/d9e864c5bcfa65c518457265193db103_tn",
+  skincare:
+    "https://down-my.img.susercontent.com/file/d9e864c5bcfa65c518457265193db103_tn",
+  groceries:
+    "https://down-my.img.susercontent.com/file/52e34825491214323c486d96d9649a2c_tn",
+  "home-decoration":
+    "https://down-my.img.susercontent.com/file/3f4c5c2134b758f4e9de6e7de839a843_tn",
+  furniture:
+    "https://down-my.img.susercontent.com/file/3f4c5c2134b758f4e9de6e7de839a843_tn",
+  tops: "https://down-my.img.susercontent.com/file/59c2de7794065c2418dcf32dc3adc765_tn",
+  "womens-dresses":
+    "https://down-my.img.susercontent.com/file/537b6270462a686b4e733a0813c3e4ad_tn",
+  "womens-shoes":
+    "https://down-my.img.susercontent.com/file/656b20a51610605ed163d9a37349d50f_tn",
+  "mens-shirts":
+    "https://down-my.img.susercontent.com/file/59c2de7794065c2418dcf32dc3adc765_tn",
+  "mens-shoes":
+    "https://down-my.img.susercontent.com/file/fa97e6d0a367546a699768c947cdc48b_tn",
+  "mens-watches":
+    "https://down-my.img.susercontent.com/file/30f3b8033f0eeafa09dfa266016e62a5_tn",
+  "womens-watches":
+    "https://down-my.img.susercontent.com/file/30f3b8033f0eeafa09dfa266016e62a5_tn",
+  "womens-bags":
+    "https://down-my.img.susercontent.com/file/a3637aaab755ca9bba43f63a9592638c_tn",
+  "womens-jewellery":
+    "https://down-my.img.susercontent.com/file/e08026a4ee4eb7087acb4bf5127b1018_tn",
+  sunglasses:
+    "https://down-my.img.susercontent.com/file/e08026a4ee4eb7087acb4bf5127b1018_tn",
+  automotive:
+    "https://down-my.img.susercontent.com/file/081a08b39f2468c85263194ab3287fee_tn",
+  motorcycle:
+    "https://down-my.img.susercontent.com/file/081a08b39f2468c85263194ab3287fee_tn",
+  lighting:
+    "https://down-my.img.susercontent.com/file/ab588c674c86512429124f9bf0d0112a_tn",
+};
