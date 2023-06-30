@@ -1,7 +1,6 @@
 import {
   Outlet,
   Route,
-  Router,
   Routes,
   useLocation,
   useNavigate,
@@ -113,7 +112,7 @@ function App() {
               : cart
           )
         )
-      : setCarts([...carts, { p: state, numOfItem: 1 }]);
+      : setCarts([...carts, { p: state, numOfItem: quantity }]);
   }
   function onSeeAll() {
     setSearchProd([...products]);
