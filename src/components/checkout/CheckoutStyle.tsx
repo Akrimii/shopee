@@ -118,3 +118,30 @@ export const PaymentMethodsButton = styled(Button)(() => ({
     backgroundColor: "transparent",
   },
 }));
+
+export const PlaceOrderButton = styled(Button)(() => ({
+  marginRight: "50px",
+  textTransform: "none",
+  color: "white",
+  backgroundColor: "#ee4d2d",
+  width: "200px",
+  ":hover": {
+    opacity: "0.8",
+    backgroundColor: "#ee4d2d",
+    color: "white",
+  },
+}));
+
+export const OKButton = styled(Button)(() => ({
+  position: "absolute",
+  marginLeft: "350px",
+  marginTop: "100px",
+  color: "white",
+  backgroundColor: "#ee4d2d",
+  border: "2px solid black",
+  width: "100px",
+  ":hover": {
+    backgroundColor: "#EE4D2D",
+    opacity: "0.8",
+  },
+}));

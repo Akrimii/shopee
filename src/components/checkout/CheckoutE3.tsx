@@ -2,6 +2,8 @@ import {
   Box,
   Button,
   Container,
+  Dialog,
+  DialogContent,
   Input,
   Stack,
   Table,
@@ -13,12 +15,15 @@ import {
 } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { row } from "../shoppingCart/ShoppingCartE2";
-import { StyledDataGrid } from "./CheckoutStyle";
+import { OKButton, PlaceOrderButton, StyledDataGrid } from "./CheckoutStyle";
 import getDate from "../../utilities/getDate";
 import CheckoutE4 from "./CheckoutE4";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   checkoutItems: (row | undefined)[];
+  onPlaceOrder: (checkoutItems: (row | undefined)[]) => void;
 }
 
 export interface CheckoutRow {
@@ -29,8 +34,19 @@ export interface CheckoutRow {
   itemSubtotal: number;
 }
 
-function CheckoutE3({ checkoutItems }: Props) {
+function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
+  const navigate = useNavigate();
   const { soonest, latest } = getDate();
+  const [orderPlacedDialog, setOrderPlacedDialog] = useState(false);
+
+  function myFunction() {
+    onPlaceOrder(checkoutItems);
+    setOrderPlacedDialog(true);
+  }
+  function onOK() {
+    setOrderPlacedDialog(false);
+    navigate("/");
+  }
 
   function calculateItemsTotal(array: (CheckoutRow | undefined)[]) {
     let total = 3;
@@ -311,26 +327,33 @@ function CheckoutE3({ checkoutItems }: Props) {
             height: "90px",
           }}
         >
-          <Button
+          <PlaceOrderButton
+            onClick={myFunction}
             variant="contained"
             disableRipple
-            sx={{
-              marginRight: "50px",
-              textTransform: "none",
-              color: "white",
-              backgroundColor: "#ee4d2d",
-              width: "200px",
-              ":hover": {
-                opacity: "0.8",
-                backgroundColor: "#ee4d2d",
-                color: "white",
-              },
-            }}
           >
             Place Order
-          </Button>
+          </PlaceOrderButton>
         </Box>
       </Container>
+
+      <Dialog open={orderPlacedDialog} sx={{ backgroundColor: "#f2f2f2" }}>
+        <Container
+          sx={{
+            width: "500px",
+            height: "180px",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Typography sx={{ color: "#757575", fontSize: "0.8rem" }}>
+            We have notified the seller to ship out your order.
+          </Typography>
+          <OKButton onClick={onOK} variant="contained">
+            OK
+          </OKButton>
+        </Container>
+      </Dialog>
     </>
   );
 }
