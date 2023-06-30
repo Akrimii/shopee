@@ -24,6 +24,7 @@ import ProductPageE4 from "../productPage/ProductPageE4";
 import DailyDiscoverE2 from "../dailyDiscover/DailyDiscoverE2";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 export interface row {
   id: number;
   product: { name: string; photo: string; product: Product };

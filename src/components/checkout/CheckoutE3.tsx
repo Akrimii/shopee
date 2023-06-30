@@ -13,7 +13,19 @@ import {
 } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import { row } from "../shoppingCart/ShoppingCartE2";
-import { OKButton, PlaceOrderButton, StyledDataGrid } from "./CheckoutStyle";
+import {
+  MessageInput,
+  MessageInputBox,
+  OKButton,
+  OrderTotalBox,
+  PlaceOrderBox,
+  PlaceOrderButton,
+  PlaceOrderContainer,
+  ShippingSummaryBox,
+  StyledDataGrid,
+  StyledTable,
+  StyledTableContainer,
+} from "./CheckoutStyle";
 import getDate from "../../utilities/getDate";
 import CheckoutE4 from "./CheckoutE4";
 import { useState } from "react";
@@ -188,40 +200,15 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
           }}
         >
           <Stack direction="row" sx={{ height: "60%" }}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: "20px",
-                border: "1px dashed rgba(0,0,0,0.1)",
-                width: "50%",
-                justifyContent: "center",
-              }}
-            >
+            <MessageInputBox>
               <Typography sx={{ fontSize: "0.8rem" }}>Message:</Typography>
-              <Input
-                sx={{
-                  border: "1px solid rgba(0,0,0,0.1)",
-                  borderRadius: "3px",
-                  backgroundColor: "white",
-                  fontSize: "0.8rem",
-                  padding: "5px 20px",
-                  width: "400px",
-                }}
+              <MessageInput
                 disableUnderline
                 name="message"
                 placeholder="Please leave a message..."
               />
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-around",
-                width: "50%",
-                border: "1px dashed rgba(0,0,0,0.1)",
-              }}
-            >
+            </MessageInputBox>
+            <ShippingSummaryBox>
               <Typography sx={{ fontSize: "0.8rem", color: "#00BFA5" }}>
                 Shipping Option:
               </Typography>
@@ -234,18 +221,9 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
                 </Typography>
               </Stack>
               <Typography sx={{ fontSize: "0.8rem" }}>RM 3.00</Typography>
-            </Box>
+            </ShippingSummaryBox>
           </Stack>
-          <Box
-            sx={{
-              display: "flex",
-              width: "100%",
-              height: "40%",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              gap: "10px",
-            }}
-          >
+          <OrderTotalBox>
             <Typography sx={{ color: "#757575" }}>
               Order Total ({calculateAmountTotal(checkoutRows)} item):
             </Typography>
@@ -258,41 +236,14 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
             >
               RM {calculateItemsTotal(checkoutRows).toFixed(2)}
             </Typography>
-          </Box>
+          </OrderTotalBox>
         </Container>
       </Container>
       <CheckoutE4 />
 
-      <Container
-        disableGutters
-        sx={{
-          backgroundColor: "#FFFEFB",
-          minWidth: "1200px",
-          margin: "0 auto",
-          height: "250px",
-          borderTop: "1px solid rgba(0,0,0,0.1)",
-          borderBottom: "1px solid rgba(0,0,0,0.1)",
-        }}
-      >
-        <TableContainer
-          sx={{
-            width: "100%",
-            borderBottom: "1px dashed rgba(0,0,0,0.1)",
-            display: "flex",
-            justifyContent: "flex-end",
-            height: "160px",
-          }}
-        >
-          <Table
-            sx={{
-              marginRight: "50px",
-              width: "300px",
-              ".MuiTableCell-root": {
-                border: "none",
-                padding: "5px",
-              },
-            }}
-          >
+      <PlaceOrderContainer disableGutters sx={{}}>
+        <StyledTableContainer>
+          <StyledTable>
             <TableBody>
               <TableRow>
                 <TableCell align="left">Merchandise Subtotal:</TableCell>
@@ -314,17 +265,9 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
                 </TableCell>
               </TableRow>
             </TableBody>
-          </Table>
-        </TableContainer>
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            height: "90px",
-          }}
-        >
+          </StyledTable>
+        </StyledTableContainer>
+        <PlaceOrderBox>
           <PlaceOrderButton
             onClick={myFunction}
             variant="contained"
@@ -332,8 +275,8 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
           >
             Place Order
           </PlaceOrderButton>
-        </Box>
-      </Container>
+        </PlaceOrderBox>
+      </PlaceOrderContainer>
 
       <Dialog open={orderPlacedDialog} sx={{ backgroundColor: "#f2f2f2" }}>
         <Container

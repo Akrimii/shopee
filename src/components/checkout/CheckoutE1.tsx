@@ -1,6 +1,7 @@
 import { Box, Breadcrumbs, Button, Container, Typography } from "@mui/material";
 import {
   AddNewAddressButton,
+  DeliveryAddressContainer,
   StyledAppBar,
   StyledContainer,
 } from "./CheckoutStyle";
@@ -66,19 +67,7 @@ function CheckoutE1({ loggedInUser, isLogin, onLogout }: Props) {
         </Container>
       </StyledAppBar>
 
-      <Container
-        sx={{
-          borderTop: "5px solid #ee4d2d",
-          backgroundColor: "white",
-          minWidth: "1200px",
-          height: "130px",
-          margin: "20px auto",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-evenly",
-          alignItems: "flex-start",
-        }}
-      >
+      <DeliveryAddressContainer>
         <Typography
           sx={{ display: "flex", alignItems: "center", color: "#EE4D2D" }}
         >
@@ -137,7 +126,7 @@ function CheckoutE1({ loggedInUser, isLogin, onLogout }: Props) {
             Add New Address{" "}
           </AddNewAddressButton>
         )}
-      </Container>
+      </DeliveryAddressContainer>
       <CheckoutE2
         open={open}
         onSubmitAddressForm={onSubmitAddressForm}

@@ -1,5 +1,5 @@
-import { Box, Container, Typography } from "@mui/material";
-import { PaymentMethodsButton } from "./CheckoutStyle";
+import { Box, Typography } from "@mui/material";
+import { PaymentMethodsButton, PaymentMethodsContainer } from "./CheckoutStyle";
 import { useState } from "react";
 
 function CheckoutE4() {
@@ -20,16 +20,7 @@ function CheckoutE4() {
     "Google Pay",
   ];
   return (
-    <Container
-      sx={{
-        backgroundColor: "white",
-        minWidth: "1200px",
-        height: "150px",
-        margin: "20px auto 0 auto",
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
+    <PaymentMethodsContainer>
       <Typography sx={{ flexBasis: "20%", fontSize: "1.2rem" }}>
         Payment Method
       </Typography>
@@ -51,7 +42,7 @@ function CheckoutE4() {
           </PaymentMethodsButton>
         ))}
       </Box>
-    </Container>
+    </PaymentMethodsContainer>
   );
 }
 

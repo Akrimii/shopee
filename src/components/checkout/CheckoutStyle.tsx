@@ -1,4 +1,13 @@
-import { AppBar, Button, Container, Input, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Input,
+  Table,
+  TableContainer,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { DataGrid } from "@mui/x-data-grid";
 
@@ -144,4 +153,94 @@ export const OKButton = styled(Button)(() => ({
     backgroundColor: "#EE4D2D",
     opacity: "0.8",
   },
+}));
+
+export const DeliveryAddressContainer = styled(Container)(() => ({
+  borderTop: "5px solid #ee4d2d",
+  backgroundColor: "white",
+  minWidth: "1200px",
+  height: "130px",
+  margin: "20px auto",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-evenly",
+  alignItems: "flex-start",
+}));
+
+export const MessageInput = styled(Input)(() => ({
+  border: "1px solid rgba(0,0,0,0.1)",
+  borderRadius: "3px",
+  backgroundColor: "white",
+  fontSize: "0.8rem",
+  padding: "5px 20px",
+  width: "400px",
+}));
+
+export const MessageInputBox = styled(Box)(() => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "20px",
+  border: "1px dashed rgba(0,0,0,0.1)",
+  width: "50%",
+  justifyContent: "center",
+}));
+
+export const ShippingSummaryBox = styled(Box)(() => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-around",
+  width: "50%",
+  border: "1px dashed rgba(0,0,0,0.1)",
+}));
+
+export const OrderTotalBox = styled(Box)(() => ({
+  display: "flex",
+  width: "100%",
+  height: "40%",
+  justifyContent: "flex-end",
+  alignItems: "center",
+  gap: "10px",
+}));
+
+export const PlaceOrderContainer = styled(Container)(() => ({
+  backgroundColor: "#FFFEFB",
+  minWidth: "1200px",
+  margin: "0 auto",
+  height: "250px",
+  borderTop: "1px solid rgba(0,0,0,0.1)",
+  borderBottom: "1px solid rgba(0,0,0,0.1)",
+}));
+
+export const StyledTableContainer = styled(TableContainer)(() => ({
+  width: "100%",
+  borderBottom: "1px dashed rgba(0,0,0,0.1)",
+  display: "flex",
+  justifyContent: "flex-end",
+  height: "160px",
+}));
+
+export const StyledTable = styled(Table)(() => ({
+  marginRight: "50px",
+  width: "300px",
+  ".MuiTableCell-root": {
+    border: "none",
+    padding: "5px",
+  },
+}));
+
+export const PlaceOrderBox = styled(Box)(() => ({
+  width: "100%",
+  display: "flex",
+  justifyContent: "flex-end",
+  alignItems: "center",
+  height: "90px",
+}));
+
+export const PaymentMethodsContainer = styled(Container)(() => ({
+  backgroundColor: "white",
+  minWidth: "1200px",
+  height: "150px",
+  margin: "20px auto 0 auto",
+  display: "flex",
+  alignItems: "center",
 }));
