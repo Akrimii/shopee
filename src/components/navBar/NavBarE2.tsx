@@ -6,15 +6,13 @@ import {
   StyledLink,
 } from "./NavBarStyle";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
-import { BsBell, BsChevronDown } from "react-icons/bs";
-import { FiGlobe } from "react-icons/fi";
+import { BsBell } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { LoggedUser } from "../../App";
 import NotificationLoggedOut from "../tooltip/NotificationLoggedOut";
 import NotificationLoggedIn from "../tooltip/NotificationLoggedIn";
 import AccountLogout from "../tooltip/AccountLogout";
-import Language from "../tooltip/Language";
 
 interface Props {
   loggedInUser: LoggedUser;
@@ -81,16 +79,7 @@ function NavBarE2({ loggedInUser, isLogin, onLogout }: Props) {
           Help
         </StyledButton>
       </StyledLink>
-      <LightTooltip arrow title={<Language />}>
-        <StyledButton
-          disableRipple
-          variant="text"
-          startIcon={<FiGlobe size="1rem" />}
-          endIcon={<BsChevronDown size="0.8rem" />}
-        >
-          English
-        </StyledButton>
-      </LightTooltip>
+
       {loggedInUser !== "" ? x : y}
     </Stack>
   );

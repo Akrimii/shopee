@@ -8,6 +8,17 @@ function Language() {
 
       <LanguageButton disableRipple>Bahasa Melayu</LanguageButton>
     </ButtonGroup>
+
+    /*<LightTooltip arrow title={<Language />}>
+    <StyledButton
+    disableRipple
+    variant="text"
+    startIcon={<FiGlobe size="1rem" />}
+    endIcon={<BsChevronDown size="0.8rem" />}
+  >
+    English
+  </StyledButton>
+</LightTooltip>*/
   );
 }
 

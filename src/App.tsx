@@ -23,6 +23,7 @@ import ShoppingCartE2, { row } from "./components/shoppingCart/ShoppingCartE2";
 import CheckoutE1 from "./components/checkout/CheckoutE1";
 import CheckoutE3 from "./components/checkout/CheckoutE3";
 import ScrollToTop from "./components/scrolling/ScrollToTop";
+import useCarts from "./hooks/useCarts";
 
 export interface CartItem {
   p: Product;
@@ -30,7 +31,13 @@ export interface CartItem {
 }
 export type LoggedUser = string;
 function App() {
-  const [carts, setCarts] = useState<CartItem[]>([]);
+  const {
+    carts,
+    setCarts,
+    onMinusShoppingCartItem,
+    onAddShoppingCartItem,
+    onDeleteCartItem,
+  } = useCarts();
   const { products } = useProducts();
   const { state } = useLocation();
   const [searchProd, setSearchProd] = useState<Product[]>([]);
@@ -53,31 +60,6 @@ function App() {
     setCheckoutItems([...item]);
   }
 
-  function onMinusShoppingCartItem(item: CartItem) {
-    if (item.numOfItem === 1) {
-      return;
-    } else {
-      setCarts(
-        carts.map((cart) =>
-          cart.p === item.p ? { ...cart, numOfItem: cart.numOfItem - 1 } : cart
-        )
-      );
-    }
-  }
-  function onAddShoppingCartItem(item: CartItem) {
-    if (item.numOfItem >= item.p.stock) {
-      return;
-    } else {
-      setCarts(
-        carts.map((cart) =>
-          cart.p === item.p ? { ...cart, numOfItem: cart.numOfItem + 1 } : cart
-        )
-      );
-    }
-  }
-  function onDeleteCartItem(product: Product) {
-    setCarts(carts.filter((cart) => cart.p !== product));
-  }
   function onSubmit(data: FieldValues) {
     if (!isLogin) {
       navigate("/login");
@@ -129,6 +111,7 @@ function App() {
     }, 1000);
     return () => clearTimeout(timer);
   }, [openDialog]);
+
   return (
     <>
       <ScrollToTop>
