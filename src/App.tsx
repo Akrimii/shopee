@@ -1,6 +1,7 @@
 import {
   Outlet,
   Route,
+  Router,
   Routes,
   useLocation,
   useNavigate,
@@ -22,6 +23,7 @@ import ShoppingCartE1 from "./components/shoppingCart/ShoppingCartE1";
 import ShoppingCartE2, { row } from "./components/shoppingCart/ShoppingCartE2";
 import CheckoutE1 from "./components/checkout/CheckoutE1";
 import CheckoutE3 from "./components/checkout/CheckoutE3";
+import ScrollToTop from "./components/scrolling/ScrollToTop";
 
 export interface CartItem {
   p: Product;
@@ -39,7 +41,6 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState<LoggedUser>("");
   const [openDialog, setOpenDialog] = useState(false);
   const [checkoutItems, setCheckoutItems] = useState<(row | undefined)[]>([]);
-  console.log(carts);
 
   function onPlaceOrder(checkoutItems: (row | undefined)[]) {
     let temp: number[] = [];
@@ -131,140 +132,142 @@ function App() {
   }, [openDialog]);
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <NavBar
-                onSubmit={(data) => onSubmit(data)}
-                isLogin={isLogin}
-                loggedInUser={loggedInUser}
-                onLogout={onLogout}
-                carts={carts}
-              />
-              <Outlet />
-              <FooterBottom />
-            </>
-          }
-        >
+      <ScrollToTop>
+        <Routes>
           <Route
-            index
+            path="/"
             element={
               <>
-                <Categories />
-                <DailyDiscover products={products} isLogin={isLogin} />
-                <FooterTop />
-              </>
-            }
-          />
-          <Route
-            path="/search/:id"
-            element={
-              <>
-                <SearchPage products={searchProd} isLogin={isLogin} />
-              </>
-            }
-          />
-          <Route
-            path="/search/category/:id"
-            element={
-              <>
-                <SearchPage
+                <NavBar
+                  onSubmit={(data) => onSubmit(data)}
                   isLogin={isLogin}
-                  products={[...where(products, { category: state })]}
+                  loggedInUser={loggedInUser}
+                  onLogout={onLogout}
+                  carts={carts}
                 />
+                <Outlet />
+                <FooterBottom />
+              </>
+            }
+          >
+            <Route
+              index
+              element={
+                <>
+                  <Categories />
+                  <DailyDiscover products={products} isLogin={isLogin} />
+                  <FooterTop />
+                </>
+              }
+            />
+            <Route
+              path="/search/:id"
+              element={
+                <>
+                  <SearchPage products={searchProd} isLogin={isLogin} />
+                </>
+              }
+            />
+            <Route
+              path="/search/category/:id"
+              element={
+                <>
+                  <SearchPage
+                    isLogin={isLogin}
+                    products={[...where(products, { category: state })]}
+                  />
+                </>
+              }
+            />
+            <Route
+              path="/product/:id"
+              element={
+                <>
+                  <ProductPage
+                    isLogin={isLogin}
+                    product={state}
+                    products={products}
+                    onMinusQuantity={onMinusQuantity}
+                    onAddQuantity={onAddQuantity}
+                    quantity={quantity}
+                    onAddToCart={onAddToCart}
+                    onSeeAll={onSeeAll}
+                    openDialog={openDialog}
+                  />
+                </>
+              }
+            />
+          </Route>
+          <Route
+            path="/signup"
+            element={
+              <>
+                <SignUp />
+                <FooterBottom />
               </>
             }
           />
           <Route
-            path="/product/:id"
+            path="/login"
             element={
               <>
-                <ProductPage
+                <Login
+                  onLoginPass={(data) => {
+                    setLogin(!isLogin);
+                    const users = localStorage.getItem("loginInfo");
+                    const loginInfo = users !== null ? JSON.parse(users) : [];
+                    setLoggedInUser(where(loginInfo, data)[0].userName);
+                  }}
+                />
+                <FooterBottom />
+              </>
+            }
+          />
+          <Route
+            path="/shoppingcart"
+            element={
+              <>
+                <ShoppingCartE1
+                  onLogout={onLogout}
+                  onSubmit={(data) => onSubmit(data)}
+                  loggedInUser={loggedInUser}
                   isLogin={isLogin}
-                  product={state}
-                  products={products}
+                />
+                <ShoppingCartE2
+                  carts={carts}
                   onMinusQuantity={onMinusQuantity}
                   onAddQuantity={onAddQuantity}
-                  quantity={quantity}
-                  onAddToCart={onAddToCart}
+                  isLogin={isLogin}
+                  products={products.slice(0, 10)}
                   onSeeAll={onSeeAll}
-                  openDialog={openDialog}
+                  onDeleteCartItem={onDeleteCartItem}
+                  onMinusShoppingCartItem={onMinusShoppingCartItem}
+                  onAddShoppingCartItem={onAddShoppingCartItem}
+                  onSubmitToCheckout={onSubmitToCheckout}
                 />
+                <FooterBottom />
               </>
             }
           />
-        </Route>
-        <Route
-          path="/signup"
-          element={
-            <>
-              <SignUp />
-              <FooterBottom />
-            </>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <>
-              <Login
-                onLoginPass={(data) => {
-                  setLogin(!isLogin);
-                  const users = localStorage.getItem("loginInfo");
-                  const loginInfo = users !== null ? JSON.parse(users) : [];
-                  setLoggedInUser(where(loginInfo, data)[0].userName);
-                }}
-              />
-              <FooterBottom />
-            </>
-          }
-        />
-        <Route
-          path="/shoppingcart"
-          element={
-            <>
-              <ShoppingCartE1
-                onLogout={onLogout}
-                onSubmit={(data) => onSubmit(data)}
-                loggedInUser={loggedInUser}
-                isLogin={isLogin}
-              />
-              <ShoppingCartE2
-                carts={carts}
-                onMinusQuantity={onMinusQuantity}
-                onAddQuantity={onAddQuantity}
-                isLogin={isLogin}
-                products={products.slice(0, 10)}
-                onSeeAll={onSeeAll}
-                onDeleteCartItem={onDeleteCartItem}
-                onMinusShoppingCartItem={onMinusShoppingCartItem}
-                onAddShoppingCartItem={onAddShoppingCartItem}
-                onSubmitToCheckout={onSubmitToCheckout}
-              />
-              <FooterBottom />
-            </>
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <>
-              <CheckoutE1
-                onLogout={onLogout}
-                loggedInUser={loggedInUser}
-                isLogin={isLogin}
-              />
-              <CheckoutE3
-                checkoutItems={checkoutItems}
-                onPlaceOrder={onPlaceOrder}
-              />
-              <FooterBottom />
-            </>
-          }
-        />
-      </Routes>
+          <Route
+            path="/checkout"
+            element={
+              <>
+                <CheckoutE1
+                  onLogout={onLogout}
+                  loggedInUser={loggedInUser}
+                  isLogin={isLogin}
+                />
+                <CheckoutE3
+                  checkoutItems={checkoutItems}
+                  onPlaceOrder={onPlaceOrder}
+                />
+                <FooterBottom />
+              </>
+            }
+          />
+        </Routes>
+      </ScrollToTop>
     </>
   );
 }
