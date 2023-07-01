@@ -6,7 +6,7 @@ import {
   StyledImageList,
   Title,
 } from "./FooterBottomStyle";
-import { ImageList, ImageListItem } from "@mui/material";
+import { ImageListItem } from "@mui/material";
 
 function FooterBottomE1() {
   return (

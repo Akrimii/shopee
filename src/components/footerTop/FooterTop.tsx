@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useCategories from "../../hooks/useCategories";
 import FooterTopE1 from "./FooterTopE1";
-import { StyledContainer, Title } from "./FooterTopStyles";
+import { CategoriesButton, StyledContainer, Title } from "./FooterTopStyles";
 import { WhiteBox } from "./FooterTopStyles";
 import { Breadcrumbs, Button } from "@mui/material";
 
@@ -25,22 +25,7 @@ function FooterTop() {
                 textDecoration: "none",
               }}
             >
-              <Button
-                variant="text"
-                sx={{
-                  color: "#757575",
-                  textTransform: "uppercase",
-                  fontSize: "0.75rem",
-                  fontWeight: "bolder",
-                  padding: 0,
-                  ":hover": {
-                    color: "#ee4d2d",
-                    backgroundColor: "transparent",
-                  },
-                }}
-              >
-                {category}
-              </Button>
+              <CategoriesButton variant="text">{category}</CategoriesButton>
             </Link>
           ))}
         </Breadcrumbs>

@@ -1,4 +1,4 @@
-import { Container, Link, Typography } from "@mui/material";
+import { Button, Container, Link, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const StyledContainer = styled(Container)(() => ({
@@ -39,5 +39,17 @@ export const StyledLink = styled(Link)(() => ({
   fontWeight: "bolder",
   ":hover": {
     color: "#EE4D2D",
+  },
+}));
+
+export const CategoriesButton = styled(Button)(() => ({
+  color: "#757575",
+  textTransform: "uppercase",
+  fontSize: "0.75rem",
+  fontWeight: "bolder",
+  padding: 0,
+  ":hover": {
+    color: "#ee4d2d",
+    backgroundColor: "transparent",
   },
 }));
