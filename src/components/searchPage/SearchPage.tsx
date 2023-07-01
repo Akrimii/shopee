@@ -16,6 +16,9 @@ import {
   SideBarBox,
   RatingButton,
   StyledDiv,
+  ClearAllButton,
+  StyledCheckbox,
+  StyledFormControlLabel,
 } from "./SearchPageStyle";
 import StarIcon from "@mui/icons-material/Star";
 import { Product } from "../../hooks/useProducts";
@@ -121,22 +124,12 @@ function SearchPage({ products, isLogin }: Props) {
             <StyledDiv>
               <SideBarSubTitle>Brand</SideBarSubTitle>
               {brands.map((brand, index) => (
-                <FormControlLabel
-                  sx={{
-                    color: "#757575",
-                    ".MuiTypography-root": { fontSize: "0.8rem" },
-                  }}
+                <StyledFormControlLabel
                   onChange={() => onSelectBrand(brand)}
                   key={index}
                   control={
-                    <Checkbox
+                    <StyledCheckbox
                       checked={selectedBrands.includes(brand) ? true : false}
-                      sx={{
-                        color: "#757575",
-                        "&.Mui-checked": {
-                          color: "#ee4d2d",
-                        },
-                      }}
                       name={brand}
                       size="small"
                     />
@@ -146,22 +139,13 @@ function SearchPage({ products, isLogin }: Props) {
               ))}
             </StyledDiv>
             <StyledDiv sx={{ border: "none" }}>
-              <Button
+              <ClearAllButton
                 onClick={onClearAll}
                 disableRipple
                 variant="contained"
-                sx={{
-                  backgroundColor: "#ee4d2d",
-                  width: "100%",
-                  textTransform: "none",
-                  ":hover": {
-                    backgroundColor: "#ee4d2d",
-                    opacity: "0.8",
-                  },
-                }}
               >
                 Clear All
-              </Button>
+              </ClearAllButton>
             </StyledDiv>
           </SideBarBox>
         </Grid>

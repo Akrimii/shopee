@@ -3,7 +3,7 @@ import useCategories from "../../hooks/useCategories";
 import FooterTopE1 from "./FooterTopE1";
 import { CategoriesButton, StyledContainer, Title } from "./FooterTopStyles";
 import { WhiteBox } from "./FooterTopStyles";
-import { Breadcrumbs, Button } from "@mui/material";
+import { Breadcrumbs } from "@mui/material";
 
 function FooterTop() {
   const { categories } = useCategories();

@@ -1,4 +1,11 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  FormControlLabel,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const ProductCardGrid = styled(Container)(() => ({
@@ -48,4 +55,26 @@ export const NoResultsContainer = styled(Container)(() => ({
   justifyContent: "center",
   alignItems: "center",
   gap: "10px",
+}));
+
+export const ClearAllButton = styled(Button)(() => ({
+  backgroundColor: "#ee4d2d",
+  width: "100%",
+  textTransform: "none",
+  ":hover": {
+    backgroundColor: "#ee4d2d",
+    opacity: "0.8",
+  },
+}));
+
+export const StyledCheckbox = styled(Checkbox)(() => ({
+  color: "#757575",
+  "&.Mui-checked": {
+    color: "#ee4d2d",
+  },
+}));
+
+export const StyledFormControlLabel = styled(FormControlLabel)(() => ({
+  color: "#757575",
+  ".MuiTypography-root": { fontSize: "0.8rem" },
 }));
