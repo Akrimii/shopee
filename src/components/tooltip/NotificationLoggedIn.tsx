@@ -1,5 +1,5 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
-import { StyledSiShopee } from "./TooltipStyle";
+import { Container, Stack, Typography } from "@mui/material";
+import { NotificationBox, StyledSiShopee } from "./TooltipStyle";
 
 interface Props {
   loggedInUser: string;
@@ -16,14 +16,7 @@ function NotificationLoggedIn({ loggedInUser }: Props) {
       >
         Recently Received Notifications
       </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: "10px",
-        }}
-      >
+      <NotificationBox>
         <StyledSiShopee />
         <Stack direction="column">
           <Typography sx={{ fontSize: "0.8rem" }}>
@@ -34,7 +27,7 @@ function NotificationLoggedIn({ loggedInUser }: Props) {
             best online shopping experience here
           </Typography>
         </Stack>
-      </Box>
+      </NotificationBox>
     </Container>
   );
 }

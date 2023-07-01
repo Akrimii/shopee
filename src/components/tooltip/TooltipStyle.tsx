@@ -1,4 +1,4 @@
-import { Button, Container } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { SiShopee } from "react-icons/si";
 export const LoggedOutTooltipContainer = styled(Container)(() => ({
@@ -64,4 +64,57 @@ export const ViewMyCartButton = styled(Button)(() => ({
     backgroundColor: "rgba(238, 77, 45,0.7)",
     color: "white",
   },
+}));
+
+export const LogoutButton = styled(Button)(() => ({
+  color: "black",
+  textTransform: "capitalize",
+  width: "150px",
+  padding: "8px",
+  ":hover": {
+    color: "#EE4D2D",
+    backgroundColor: "#F2F2F2",
+  },
+}));
+
+export const NotificationBox = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  gap: "10px",
+}));
+
+export const EmptyShoppingCartBox = styled(Box)(() => ({
+  width: "290px",
+  height: "200px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+}));
+
+export const EachCartItemContainer = styled(Container)(() => ({
+  display: "flex",
+  flexDirection: "row",
+  width: "290px",
+  alignItems: "center",
+  padding: "5px",
+  justifyContent: "space-between",
+  ":hover": {
+    backgroundColor: "#F2F2F2",
+  },
+}));
+
+export const ImageBox = styled(Box)(() => ({
+  backgroundColor: "#F2F2F2",
+  marginRight: "5px",
+  height: "min-content",
+  width: "min-content",
+}));
+
+export const StyledImage = styled("img")(() => ({
+  width: "50px",
+  height: "50px",
+  objectFit: "contain",
+  overflow: "hidden",
 }));

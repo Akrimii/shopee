@@ -1,17 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { EmptyShoppingCartBox } from "./TooltipStyle";
 
 function ShoppingCartEmpty() {
   return (
-    <Box
-      sx={{
-        width: "290px",
-        height: "200px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <EmptyShoppingCartBox>
       <img
         src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/9bdd8040b334d31946f49e36beaf32db.png"
         style={{ width: "100px" }}
@@ -21,7 +13,7 @@ function ShoppingCartEmpty() {
       >
         Your shopping cart is empty
       </Typography>
-    </Box>
+    </EmptyShoppingCartBox>
   );
 }
 

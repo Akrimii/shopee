@@ -1,6 +1,11 @@
-import { Container, Typography, Stack, Box } from "@mui/material";
+import { Container, Typography, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
-import { ViewMyCartButton } from "./TooltipStyle";
+import {
+  EachCartItemContainer,
+  ImageBox,
+  StyledImage,
+  ViewMyCartButton,
+} from "./TooltipStyle";
 import { CartItem } from "../../App";
 import useExchange from "../../hooks/useExchange";
 
@@ -35,42 +40,14 @@ function ShoppingCartFilled({ carts }: Props) {
           key={index}
           state={cart.p}
         >
-          <Container
-            disableGutters
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              width: "290px",
-              alignItems: "center",
-              padding: "5px",
-              justifyContent: "space-between",
-              ":hover": {
-                backgroundColor: "#F2F2F2",
-              },
-            }}
-          >
+          <EachCartItemContainer disableGutters>
             <Stack
               direction="row"
               sx={{ display: "flex", alignItems: "center" }}
             >
-              <Box
-                sx={{
-                  backgroundColor: "#F2F2F2",
-                  marginRight: "5px",
-                  height: "min-content",
-                  width: "min-content",
-                }}
-              >
-                <img
-                  src={cart.p.thumbnail}
-                  style={{
-                    width: "50px",
-                    height: "50px",
-                    objectFit: "contain",
-                    overflow: "hidden",
-                  }}
-                />
-              </Box>
+              <ImageBox>
+                <StyledImage src={cart.p.thumbnail} />
+              </ImageBox>
               <Typography sx={{ fontSize: "0.8rem" }}>
                 {cart.p.title}
               </Typography>
@@ -78,7 +55,7 @@ function ShoppingCartFilled({ carts }: Props) {
             <Typography sx={{ fontSize: "0.8rem", color: "#EE4D2D" }}>
               RM{discounted(cart.p.price, cart.p.discountPercentage)}
             </Typography>
-          </Container>
+          </EachCartItemContainer>
         </Link>
       ))}
       <Container
