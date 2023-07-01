@@ -1,4 +1,11 @@
-import { AppBar, Breadcrumbs, Link, Button, Container } from "@mui/material";
+import {
+  AppBar,
+  Breadcrumbs,
+  Link,
+  Button,
+  Container,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { DataGrid } from "@mui/x-data-grid";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
@@ -173,13 +180,13 @@ export const StyledDataGrid = styled(DataGrid)(() => ({
   ".MuiButtonBase-root-MuiCheckbox-root:hover": {
     backgroundColor: "none",
   },
-  ".css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked": {
+  ".Mui-checked": {
     color: "#ee4d2d",
   },
   ".MuiDataGrid-columnHeader:focus-within": {
     outline: "none",
   },
-  ".css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root": {
+  ".MuiButtonBase-root-MuiCheckbox-root": {
     backgroundColor: "transparent",
   },
   ".MuiDataGrid-cell:focus-within": {
@@ -221,5 +228,22 @@ export const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
   },
   [`& .${tooltipClasses.arrow}`]: {
     color: "white",
+  },
+}));
+
+export const TotalPriceColumnTypography = styled(Typography)(() => ({
+  color: "#EE4D2D",
+  fontSize: "0.9rem",
+  width: "100%",
+  textAlign: "center",
+}));
+
+export const ActionsColumnButton = styled(Button)(() => ({
+  textTransform: "capitalize",
+  color: "inherit",
+  width: "100%",
+  ":hover": {
+    backgroundColor: "transparent",
+    color: "#ee4d2d",
   },
 }));

@@ -19,7 +19,7 @@ import FooterBottom from "./components/footerBottom/FooterBottom";
 import { useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import ShoppingCartE1 from "./components/shoppingCart/ShoppingCartE1";
-import ShoppingCartE2, { row } from "./components/shoppingCart/ShoppingCartE2";
+import ShoppingCartE2, { Row } from "./components/shoppingCart/ShoppingCartE2";
 import CheckoutE1, { Address } from "./components/checkout/CheckoutE1";
 import CheckoutE3 from "./components/checkout/CheckoutE3";
 import ScrollToTop from "./components/scrolling/ScrollToTop";
@@ -46,13 +46,13 @@ function App() {
   const [quantity, setQuantity] = useState(1);
   const [loggedInUser, setLoggedInUser] = useState<LoggedUser>("");
   const [openDialog, setOpenDialog] = useState(false);
-  const [checkoutItems, setCheckoutItems] = useState<(row | undefined)[]>([]);
+  const [checkoutItems, setCheckoutItems] = useState<(Row | undefined)[]>([]);
   const [address, setAddress] = useState<Address>();
 
   function onSetAddress(data: FieldValues) {
     setAddress(data);
   }
-  function onPlaceOrder(checkoutItems: (row | undefined)[]) {
+  function onPlaceOrder(checkoutItems: (Row | undefined)[]) {
     let temp: number[] = [];
     checkoutItems.map((checkoutItem) =>
       temp.push(checkoutItem?.product.product.id as number)
@@ -60,7 +60,7 @@ function App() {
     setCarts(carts.filter((cart) => !temp.includes(cart.p.id)));
   }
 
-  function onSubmitToCheckout(item: (row | undefined)[]) {
+  function onSubmitToCheckout(item: (Row | undefined)[]) {
     setCheckoutItems([...item]);
   }
 

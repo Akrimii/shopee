@@ -1,29 +1,29 @@
 import { Typography } from "@mui/material";
 import { CheckOutButton, TotalItemsContainer } from "./ShoppingCartStyle";
-import { row } from "./ShoppingCartE2";
+import { Row } from "./ShoppingCartE2";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-  purchaseItems: (row | undefined)[];
+  purchaseItems: (Row | undefined)[];
 }
 function ShoppingCartE3({ purchaseItems }: Props) {
   const navigate = useNavigate();
 
-  function calculateTotal(array: (row | undefined)[]) {
+  function calculateTotal(array: (Row | undefined)[]) {
     let value = 0;
     for (let i = 0; i < array.length; i++) {
       if (array[i] !== undefined) {
-        value += (array[i] as row).totalPrice;
+        value += (array[i] as Row).totalPrice;
       }
     }
     return value;
   }
 
-  function calculateSaving(array: (row | undefined)[]) {
+  function calculateSaving(array: (Row | undefined)[]) {
     let value = 0;
     for (let i = 0; i < array.length; i++) {
       if (array[i] !== undefined) {
-        value += (array[i] as row).totalSaved;
+        value += (array[i] as Row).totalSaved;
       }
     }
     return value;

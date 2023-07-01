@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
-import { row } from "../shoppingCart/ShoppingCartE2";
+import { Row } from "../shoppingCart/ShoppingCartE2";
 import {
   MessageInput,
   MessageInputBox,
@@ -30,8 +30,8 @@ import { useNavigate } from "react-router-dom";
 import { Address } from "./CheckoutE1";
 
 interface Props {
-  checkoutItems: (row | undefined)[];
-  onPlaceOrder: (checkoutItems: (row | undefined)[]) => void;
+  checkoutItems: (Row | undefined)[];
+  onPlaceOrder: (checkoutItems: (Row | undefined)[]) => void;
   address: Address | undefined;
 }
 
@@ -160,16 +160,16 @@ function CheckoutE3({ checkoutItems, onPlaceOrder, address }: Props) {
 
   const checkoutRows: CheckoutRow[] = [];
   {
-    checkoutItems.map((checkoutItem: row | undefined) => {
+    checkoutItems.map((checkoutItem: Row | undefined) => {
       checkoutRows.push({
-        id: (checkoutItem as row).id,
+        id: (checkoutItem as Row).id,
         product: {
-          name: (checkoutItem as row).product.name,
-          photo: (checkoutItem as row).product.photo,
+          name: (checkoutItem as Row).product.name,
+          photo: (checkoutItem as Row).product.photo,
         },
-        price: (checkoutItem as row).price.discounted,
-        amount: (checkoutItem as row).quantity,
-        itemSubtotal: (checkoutItem as row).totalPrice,
+        price: (checkoutItem as Row).price.discounted,
+        amount: (checkoutItem as Row).quantity,
+        itemSubtotal: (checkoutItem as Row).totalPrice,
       });
     });
   }

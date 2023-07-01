@@ -1,13 +1,4 @@
-import {
-  Button,
-  Checkbox,
-  Container,
-  FormControlLabel,
-  Grid,
-  Rating,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Container, Grid, Rating, Stack, Typography } from "@mui/material";
 import DailyDiscoverE2 from "../dailyDiscover/DailyDiscoverE2";
 import { FiFilter } from "react-icons/fi";
 import {

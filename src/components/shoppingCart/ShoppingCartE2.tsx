@@ -1,20 +1,15 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Container,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, ButtonGroup, Container, Stack, Typography } from "@mui/material";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import { GridColDef, GridRowSelectionModel } from "@mui/x-data-grid";
 import { CartItem } from "../../App";
 import {
+  ActionsColumnButton,
   EachButton,
   FreeContainer,
   LightOrangeContainer,
   ProductCardGrid,
   StyledDataGrid,
+  TotalPriceColumnTypography,
 } from "./ShoppingCartStyle";
 import { Product } from "../../hooks/useProducts";
 import ShoppingCartE4 from "./ShoppingCartE4";
@@ -25,7 +20,7 @@ import DailyDiscoverE2 from "../dailyDiscover/DailyDiscoverE2";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export interface row {
+export interface Row {
   id: number;
   product: { name: string; photo: string; product: Product };
   price: { original: string; discounted: string };
@@ -44,7 +39,7 @@ interface Props {
   onDeleteCartItem: (product: Product) => void;
   onMinusShoppingCartItem: (item: CartItem) => void;
   onAddShoppingCartItem: (item: CartItem) => void;
-  onSubmitToCheckout: (item: (row | undefined)[]) => void;
+  onSubmitToCheckout: (item: (Row | undefined)[]) => void;
 }
 function ShoppingCartE2({
   carts,
@@ -57,7 +52,7 @@ function ShoppingCartE2({
   onSubmitToCheckout,
 }: Props) {
   const { exchange } = useExchange();
-  const [purchaseItems, setPurchaseItems] = useState<(row | undefined)[]>([]);
+  const [purchaseItems, setPurchaseItems] = useState<(Row | undefined)[]>([]);
   const onRowsSelectionHandler = (ids: GridRowSelectionModel) => {
     const selectedRowsData = ids.map((id) => rows.find((row) => row.id === id));
     setPurchaseItems([...selectedRowsData]);
@@ -207,16 +202,9 @@ function ShoppingCartE2({
       headerAlign: "center",
       sortable: false,
       renderCell: (params) => (
-        <Typography
-          sx={{
-            color: "#EE4D2D",
-            fontSize: "0.9rem",
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
+        <TotalPriceColumnTypography>
           RM{params.row.totalPrice.toFixed(2)}
-        </Typography>
+        </TotalPriceColumnTypography>
       ),
     },
     {
@@ -232,26 +220,17 @@ function ShoppingCartE2({
       sortable: false,
       type: "actions",
       renderCell: (params) => (
-        <Button
+        <ActionsColumnButton
           disableRipple
           onClick={() => onDeleteCartItem(params.row.product.product)}
           variant="text"
-          sx={{
-            textTransform: "capitalize",
-            color: "inherit",
-            width: "100%",
-            ":hover": {
-              backgroundColor: "transparent",
-              color: "#ee4d2d",
-            },
-          }}
         >
           Delete
-        </Button>
+        </ActionsColumnButton>
       ),
     },
   ];
-  const rows: row[] = [];
+  const rows: Row[] = [];
   {
     carts.map((cart: CartItem, index) => {
       rows.push({
