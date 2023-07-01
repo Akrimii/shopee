@@ -33,8 +33,9 @@ function SearchPage({ products, isLogin }: Props) {
   const [selectedRating, setSelectedRating] = useState<number>(0);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
+  let brands: string[] = [];
+  products.map((product) => brands.push(product.brand));
 
-  console.log(filteredProducts);
   if (products.length === 0) {
     return <SearchPageE2 />;
   }
@@ -62,9 +63,6 @@ function SearchPage({ products, isLogin }: Props) {
       setFilteredProducts(products);
     }
   }, [selectedBrands]);
-
-  let brands: string[] = [];
-  products.map((product) => brands.push(product.brand));
 
   function onSelectRating(value: number) {
     setSelectedRating(value);

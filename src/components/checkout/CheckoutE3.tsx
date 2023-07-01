@@ -47,10 +47,12 @@ function CheckoutE3({ checkoutItems, onPlaceOrder, address }: Props) {
   const navigate = useNavigate();
   const { soonest, latest } = getDate();
   const [orderPlacedDialog, setOrderPlacedDialog] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<
+    string | null
+  >(null);
 
   function handlePaymentMethod(method: string) {
-    setSelected(method);
+    setSelectedPaymentMethod(method);
   }
   function myFunction() {
     onPlaceOrder(checkoutItems);
@@ -243,7 +245,7 @@ function CheckoutE3({ checkoutItems, onPlaceOrder, address }: Props) {
         </Container>
       </Container>
       <CheckoutE4
-        selected={selected}
+        selectedPaymentMethod={selectedPaymentMethod}
         handlePaymentMethod={handlePaymentMethod}
       />
 
@@ -278,7 +280,7 @@ function CheckoutE3({ checkoutItems, onPlaceOrder, address }: Props) {
             onClick={myFunction}
             variant="contained"
             disableRipple
-            disabled={!address ? true : !selected ? true : false}
+            disabled={!address ? true : !selectedPaymentMethod ? true : false}
           >
             Place Order
           </PlaceOrderButton>

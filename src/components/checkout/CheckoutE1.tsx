@@ -4,6 +4,7 @@ import {
   DeliveryAddressContainer,
   StyledAppBar,
   StyledContainer,
+  UserAddressBox,
 } from "./CheckoutStyle";
 import NavBarE1 from "../navBar/NavBarE1";
 import NavBarE2 from "../navBar/NavBarE2";
@@ -82,14 +83,7 @@ function CheckoutE1({
           Delivery Address
         </Typography>
         {address && (
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              gap: "10px",
-              alignItems: "center",
-            }}
-          >
+          <UserAddressBox>
             <Typography sx={{ fontWeight: "bolder" }}>
               {address.fullName}
               {"   "}
@@ -121,7 +115,7 @@ function CheckoutE1({
             >
               Change
             </Button>
-          </Box>
+          </UserAddressBox>
         )}
 
         {!address && (

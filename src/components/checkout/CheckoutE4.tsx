@@ -1,24 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import { PaymentMethodsButton, PaymentMethodsContainer } from "./CheckoutStyle";
 import CheckIcon from "@mui/icons-material/Check";
+import { allPaymentMethods } from "../../assets/allPaymentMethods";
 
 interface Props {
-  selected: string | null;
+  selectedPaymentMethod: string | null;
   handlePaymentMethod: (method: string) => void;
 }
-function CheckoutE4({ selected, handlePaymentMethod }: Props) {
-  const allPaymentMethods: string[] = [
-    "Online Banking",
-    "Maybank2u",
-    "ShopeePay (RM0.10)",
-    "Credit / Debit Card",
-    "Cash Payment at Convenience Stores",
-    "Cash on Delivery",
-    "Credit Card Installment",
-    "SPayLater (RM0.00)",
-    "Apple Pay",
-    "Google Pay",
-  ];
+function CheckoutE4({ selectedPaymentMethod, handlePaymentMethod }: Props) {
   return (
     <PaymentMethodsContainer>
       <Typography sx={{ flexBasis: "20%", fontSize: "1.2rem" }}>
@@ -33,14 +22,20 @@ function CheckoutE4({ selected, handlePaymentMethod }: Props) {
       >
         {allPaymentMethods.map((method, index) => (
           <PaymentMethodsButton
+            sx={
+              method === selectedPaymentMethod
+                ? { border: "2px solid #ee4d2d" }
+                : { border: "1px solid rgba(0,0,0,0.1)" }
+            }
             key={index}
             disableRipple
             variant="outlined"
             onClick={() => handlePaymentMethod(method)}
             endIcon={
-              method === selected && <CheckIcon style={{ color: "#ee4d2d" }} />
+              method === selectedPaymentMethod && (
+                <CheckIcon style={{ color: "#ee4d2d" }} />
+              )
             }
-            className={method === selected ? "selectedButton" : ""}
           >
             {method}
           </PaymentMethodsButton>

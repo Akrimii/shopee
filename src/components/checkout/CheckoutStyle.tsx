@@ -115,7 +115,6 @@ export const PaymentMethodsButton = styled(Button)(() => ({
   width: "max-content",
   height: "40px",
   borderRadius: "3px",
-  border: "1px solid rgba(0,0,0,0.1)",
   ":hover": {
     color: "#ee4d2d",
     border: "1px solid #EE4D2D",
@@ -242,5 +241,12 @@ export const PaymentMethodsContainer = styled(Container)(() => ({
   height: "150px",
   margin: "20px auto 0 auto",
   display: "flex",
+  alignItems: "center",
+}));
+
+export const UserAddressBox = styled(Box)(() => ({
+  width: "100%",
+  display: "flex",
+  gap: "10px",
   alignItems: "center",
 }));
