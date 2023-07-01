@@ -106,6 +106,7 @@ function CheckoutE1({ loggedInUser, isLogin, onLogout }: Props) {
             <Button
               onClick={() => setOpen(true)}
               variant="text"
+              disableRipple
               sx={{
                 textTransform: "none",
                 ":hover": { backgroundColor: "transparent" },

@@ -121,11 +121,6 @@ export const PaymentMethodsButton = styled(Button)(() => ({
     border: "1px solid #EE4D2D",
     backgroundColor: "transparent",
   },
-  ".active": {
-    color: "#ee4d2d",
-    border: "1px solid #EE4D2D",
-    backgroundColor: "transparent",
-  },
 }));
 
 export const PlaceOrderButton = styled(Button)(() => ({
@@ -137,6 +132,11 @@ export const PlaceOrderButton = styled(Button)(() => ({
   ":hover": {
     opacity: "0.8",
     backgroundColor: "#ee4d2d",
+    color: "white",
+  },
+  ":disabled": {
+    backgroundColor: "#ee4d2d",
+    opacity: "0.5",
     color: "white",
   },
 }));

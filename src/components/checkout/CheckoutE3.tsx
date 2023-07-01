@@ -2,12 +2,9 @@ import {
   Box,
   Container,
   Dialog,
-  Input,
   Stack,
-  Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableRow,
   Typography,
 } from "@mui/material";
@@ -48,7 +45,11 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
   const navigate = useNavigate();
   const { soonest, latest } = getDate();
   const [orderPlacedDialog, setOrderPlacedDialog] = useState(false);
+  const [selected, setSelected] = useState<string | null>(null);
 
+  function handlePaymentMethod(method: string) {
+    setSelected(method);
+  }
   function myFunction() {
     onPlaceOrder(checkoutItems);
     setOrderPlacedDialog(true);
@@ -239,7 +240,10 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
           </OrderTotalBox>
         </Container>
       </Container>
-      <CheckoutE4 />
+      <CheckoutE4
+        selected={selected}
+        handlePaymentMethod={handlePaymentMethod}
+      />
 
       <PlaceOrderContainer disableGutters sx={{}}>
         <StyledTableContainer>
@@ -272,6 +276,7 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
             onClick={myFunction}
             variant="contained"
             disableRipple
+            disabled={!selected && true}
           >
             Place Order
           </PlaceOrderButton>

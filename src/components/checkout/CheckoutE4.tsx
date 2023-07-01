@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { PaymentMethodsButton, PaymentMethodsContainer } from "./CheckoutStyle";
-import { useState } from "react";
+import CheckIcon from "@mui/icons-material/Check";
 
-function CheckoutE4() {
-  const [selected, setSelected] = useState<string>();
-
-  console.log(selected);
-
+interface Props {
+  selected: string | null;
+  handlePaymentMethod: (method: string) => void;
+}
+function CheckoutE4({ selected, handlePaymentMethod }: Props) {
   const allPaymentMethods: string[] = [
     "Online Banking",
     "Maybank2u",
@@ -34,9 +34,13 @@ function CheckoutE4() {
         {allPaymentMethods.map((method, index) => (
           <PaymentMethodsButton
             key={index}
-            variant="outlined"
             disableRipple
-            onClick={() => setSelected(method)}
+            variant="outlined"
+            onClick={() => handlePaymentMethod(method)}
+            endIcon={
+              method === selected && <CheckIcon style={{ color: "#ee4d2d" }} />
+            }
+            className={method === selected ? "selectedButton" : ""}
           >
             {method}
           </PaymentMethodsButton>
