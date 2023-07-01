@@ -1,6 +1,7 @@
 import { List, ListItem, Typography } from "@mui/material";
 import {
   BorderedContainer,
+  FooterBottomGrayDiv,
   ListContainer,
   StyledLink,
   Title,
@@ -17,7 +18,7 @@ import FooterBottomE4 from "./FooterBottomE4";
 
 function FooterBottom() {
   return (
-    <div style={{ backgroundColor: "#f2f2f2", height: "500px", width: "100%" }}>
+    <FooterBottomGrayDiv>
       <BorderedContainer disableGutters>
         <ListContainer disableGutters>
           <Title>CUSTOMER SERVICE</Title>
@@ -50,7 +51,7 @@ function FooterBottom() {
       </BorderedContainer>
 
       <FooterBottomE3 />
-    </div>
+    </FooterBottomGrayDiv>
   );
 }
 

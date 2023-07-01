@@ -1,6 +1,6 @@
 import { Typography, Container, Breadcrumbs } from "@mui/material";
 import { countries } from "../../assets/countries";
-import { BorderedContainer } from "./FooterBottomStyle";
+import { BorderedContainer, CountriesContainer } from "./FooterBottomStyle";
 
 function FooterBottomE3() {
   return (
@@ -8,15 +8,7 @@ function FooterBottomE3() {
       <Typography sx={{ fontSize: "0.8rem", color: "#757575" }}>
         © 2023 Shopee. All Rights Reserved.
       </Typography>
-      <Container
-        disableGutters
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-          width: "max-content",
-        }}
-      >
+      <CountriesContainer disableGutters>
         <Typography sx={{ fontSize: "0.8rem", color: "#757575" }}>
           Country & Region:
         </Typography>
@@ -30,7 +22,7 @@ function FooterBottomE3() {
             </Typography>
           ))}
         </Breadcrumbs>
-      </Container>
+      </CountriesContainer>
     </BorderedContainer>
   );
 }
