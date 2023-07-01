@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import ShoppingCartE1 from "./components/shoppingCart/ShoppingCartE1";
 import ShoppingCartE2, { row } from "./components/shoppingCart/ShoppingCartE2";
-import CheckoutE1 from "./components/checkout/CheckoutE1";
+import CheckoutE1, { Address } from "./components/checkout/CheckoutE1";
 import CheckoutE3 from "./components/checkout/CheckoutE3";
 import ScrollToTop from "./components/scrolling/ScrollToTop";
 import useCarts from "./hooks/useCarts";
@@ -47,7 +47,11 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState<LoggedUser>("");
   const [openDialog, setOpenDialog] = useState(false);
   const [checkoutItems, setCheckoutItems] = useState<(row | undefined)[]>([]);
+  const [address, setAddress] = useState<Address>();
 
+  function onSetAddress(data: FieldValues) {
+    setAddress(data);
+  }
   function onPlaceOrder(checkoutItems: (row | undefined)[]) {
     let temp: number[] = [];
     checkoutItems.map((checkoutItem) =>
@@ -236,11 +240,14 @@ function App() {
             element={
               <>
                 <CheckoutE1
+                  address={address}
+                  onSetAddress={onSetAddress}
                   onLogout={onLogout}
                   loggedInUser={loggedInUser}
                   isLogin={isLogin}
                 />
                 <CheckoutE3
+                  address={address}
                   checkoutItems={checkoutItems}
                   onPlaceOrder={onPlaceOrder}
                 />

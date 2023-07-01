@@ -19,16 +19,23 @@ interface Props {
   loggedInUser: LoggedUser;
   isLogin: boolean;
   onLogout: () => void;
+  onSetAddress: (data: FieldValues) => void;
+  address: Address | undefined;
 }
 
-type Address = FieldValues;
+export type Address = FieldValues;
 
-function CheckoutE1({ loggedInUser, isLogin, onLogout }: Props) {
+function CheckoutE1({
+  loggedInUser,
+  isLogin,
+  onLogout,
+  onSetAddress,
+  address,
+}: Props) {
   const [open, setOpen] = useState(false);
-  const [address, setAddress] = useState<Address>();
 
   function onSubmitAddressForm(data: FieldValues) {
-    setAddress(data);
+    onSetAddress(data);
     setOpen(false);
   }
 

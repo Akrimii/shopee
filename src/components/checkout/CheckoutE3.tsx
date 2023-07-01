@@ -27,10 +27,12 @@ import getDate from "../../utilities/getDate";
 import CheckoutE4 from "./CheckoutE4";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Address } from "./CheckoutE1";
 
 interface Props {
   checkoutItems: (row | undefined)[];
   onPlaceOrder: (checkoutItems: (row | undefined)[]) => void;
+  address: Address | undefined;
 }
 
 export interface CheckoutRow {
@@ -41,7 +43,7 @@ export interface CheckoutRow {
   itemSubtotal: number;
 }
 
-function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
+function CheckoutE3({ checkoutItems, onPlaceOrder, address }: Props) {
   const navigate = useNavigate();
   const { soonest, latest } = getDate();
   const [orderPlacedDialog, setOrderPlacedDialog] = useState(false);
@@ -276,7 +278,7 @@ function CheckoutE3({ checkoutItems, onPlaceOrder }: Props) {
             onClick={myFunction}
             variant="contained"
             disableRipple
-            disabled={!selected && true}
+            disabled={!address ? true : !selected ? true : false}
           >
             Place Order
           </PlaceOrderButton>
