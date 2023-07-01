@@ -28,12 +28,16 @@ export const SideBarBox = styled(Box)(() => ({
 export const RatingButton = styled(Button)(() => ({
   textTransform: "capitalize",
   color: "#757575",
-  borderRadius: "15px",
-  ":hover": { background: "transparent" },
+  borderRadius: "30px",
+  border: "none",
+  ":hover": { background: "rgba(0,0,0,0.1)", border: "none" },
 }));
 
 export const StyledDiv = styled("div")(() => ({
   borderBottom: "1px solid rgba(0,0,0,0.1)",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
 }));
 
 export const NoResultsContainer = styled(Container)(() => ({
