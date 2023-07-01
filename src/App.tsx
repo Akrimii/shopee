@@ -99,6 +99,7 @@ function App() {
           )
         )
       : setCarts([...carts, { p: state, numOfItem: quantity }]);
+    setQuantity(1);
   }
   function onSeeAll() {
     setSearchProd([...products]);
