@@ -39,6 +39,10 @@ function SearchPage({ products, isLogin }: Props) {
     return <SearchPageE2 />;
   }
 
+  function onClearAll() {
+    setSelectedBrands([]), setSelectedRating(0);
+  }
+
   useEffect(() => {
     if (selectedRating) {
       setFilteredProducts(
@@ -145,7 +149,7 @@ function SearchPage({ products, isLogin }: Props) {
             </StyledDiv>
             <StyledDiv sx={{ border: "none" }}>
               <Button
-                onClick={() => setSelectedBrands([])}
+                onClick={onClearAll}
                 disableRipple
                 variant="contained"
                 sx={{
