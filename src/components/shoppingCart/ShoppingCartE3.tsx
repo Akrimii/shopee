@@ -1,12 +1,14 @@
 import { Typography } from "@mui/material";
 import { CheckOutButton, TotalItemsContainer } from "./ShoppingCartStyle";
 import { row } from "./ShoppingCartE2";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   purchaseItems: (row | undefined)[];
 }
 function ShoppingCartE3({ purchaseItems }: Props) {
+  const navigate = useNavigate();
+
   function calculateTotal(array: (row | undefined)[]) {
     let value = 0;
     for (let i = 0; i < array.length; i++) {
@@ -78,14 +80,13 @@ function ShoppingCartE3({ purchaseItems }: Props) {
           {z > 0 && savingContainer}
         </div>
 
-        <Link to="/checkout">
-          <CheckOutButton
-            disableRipple
-            disabled={purchaseItems.length === 0 ? true : false}
-          >
-            Check Out
-          </CheckOutButton>
-        </Link>
+        <CheckOutButton
+          disableRipple
+          disabled={purchaseItems.length === 0 && true}
+          onClick={() => navigate("/checkout")}
+        >
+          Check Out
+        </CheckOutButton>
       </TotalItemsContainer>
     </>
   );
