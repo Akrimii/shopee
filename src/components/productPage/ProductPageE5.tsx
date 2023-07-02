@@ -17,6 +17,15 @@ interface Props {
 function ProductPageE5({ rating, totalRatings }: Props) {
   const { reviews } = useReviews();
 
+  function convertString(item: string) {
+    let l = item.length;
+    if (l > 4) {
+      return item.slice(0, 2) + "*".repeat(l - 3) + item.slice(-1, l);
+    } else {
+      return;
+    }
+  }
+
   return (
     <WhiteContainer sx={{ paddingBottom: "100px" }}>
       <Typography>Product Ratings</Typography>
@@ -50,7 +59,7 @@ function ProductPageE5({ rating, totalRatings }: Props) {
             />
             <Stack direction="column">
               <Typography sx={{ fontSize: "0.8rem" }}>
-                {review.email.split("@")[0]}
+                {convertString(review.email.split("@")[0])}
               </Typography>
               <Rating
                 readOnly
