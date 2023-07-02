@@ -138,3 +138,12 @@ export const ReviewBox = styled(Box)(() => ({
   fontSize: "0.875rem",
   padding: "20px",
 }));
+
+export const DialogDiv = styled("div")(() => ({
+  height: "180px",
+  width: "370px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+}));

@@ -8,6 +8,7 @@ import {
   ReviewBox,
   WhiteContainer,
 } from "./ProductPageStyle";
+import { anonymousString } from "../../utilities/anonymousString";
 
 interface Props {
   rating: number;
@@ -16,15 +17,6 @@ interface Props {
 
 function ProductPageE5({ rating, totalRatings }: Props) {
   const { reviews } = useReviews();
-
-  function convertString(item: string) {
-    let l = item.length;
-    if (l > 4) {
-      return item.slice(0, 2) + "*".repeat(l - 3) + item.slice(-1, l);
-    } else {
-      return;
-    }
-  }
 
   return (
     <WhiteContainer sx={{ paddingBottom: "100px" }}>
@@ -59,7 +51,7 @@ function ProductPageE5({ rating, totalRatings }: Props) {
             />
             <Stack direction="column">
               <Typography sx={{ fontSize: "0.8rem" }}>
-                {convertString(review.email.split("@")[0])}
+                {anonymousString(review.email.split("@")[0])}
               </Typography>
               <Rating
                 readOnly
