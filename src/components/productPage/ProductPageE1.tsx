@@ -1,20 +1,22 @@
 import { ImageList, ImageListItem } from "@mui/material";
 import { BigImage, BigPictureContainer, SmallImage } from "./ProductPageStyle";
 import { Product } from "../../hooks/useProducts";
+import { useState } from "react";
 
 interface Props {
   product: Product;
 }
 
 function ProductPageE1({ product }: Props) {
+  const [displayImage, setDisplayImage] = useState<string>(product.thumbnail);
   return (
     <>
       <BigPictureContainer disableGutters>
-        <BigImage src={product.thumbnail} />
+        <BigImage src={displayImage} />
       </BigPictureContainer>
       <ImageList
         variant="standard"
-        gap={15}
+        gap={0}
         rowHeight={90}
         sx={{
           width: "450px",
@@ -26,6 +28,8 @@ function ProductPageE1({ product }: Props) {
         {product.images.map((image) => (
           <ImageListItem
             key={image}
+            onMouseEnter={() => setDisplayImage(image)}
+            onMouseLeave={() => setDisplayImage(product.thumbnail)}
             sx={{
               border: "2px solid white",
               ":hover": {
