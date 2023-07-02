@@ -1,6 +1,7 @@
 import { Stack } from "@mui/material";
 import {
   LightTooltip,
+  SignUpButton,
   StyledBreadcrumbs,
   StyledButton,
   StyledLink,
@@ -39,11 +40,11 @@ function NavBarE2({ loggedInUser, isLogin, onLogout }: Props) {
       separator="|"
       sx={{ fontWeight: "bold", paddingTop: "8px" }}
     >
-      <Link to="/signup" style={{ textDecoration: "none" }}>
-        <StyledLink>Sign Up</StyledLink>
+      <Link to="/signup" style={{ textDecoration: "none", color: "white" }}>
+        <SignUpButton disableRipple>Sign Up</SignUpButton>
       </Link>
-      <Link to="/login" style={{ textDecoration: "none" }}>
-        <StyledLink>Login</StyledLink>
+      <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
+        <SignUpButton disableRipple>Login</SignUpButton>
       </Link>
     </StyledBreadcrumbs>
   );

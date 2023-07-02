@@ -67,9 +67,14 @@ function DailyDiscoverE2({ products, isLogin }: Props) {
                 {product.brand.toUpperCase()}- {product.title}
               </Typography>
               <PriceContainer>
-                <OriginalPrice>RM{original(product.price)}</OriginalPrice>
+                <OriginalPrice sx={{ marginRight: "5px" }}>
+                  RM{original(product.price)}
+                </OriginalPrice>
+
+                <Typography sx={{ fontSize: "0.8rem", color: "#ee4d2d" }}>
+                  RM
+                </Typography>
                 <DiscountedPrice>
-                  <Typography sx={{ fontSize: "0.8rem" }}>RM</Typography>
                   {discounted(product.price, product.discountPercentage)}
                 </DiscountedPrice>
               </PriceContainer>

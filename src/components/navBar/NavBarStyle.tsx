@@ -35,6 +35,7 @@ export const StyledButton = styled(Button)(() => ({
   textTransform: "none",
   color: "white",
   fontSize: "0.8rem",
+  padding: "8px 8px",
   ":hover": {
     backgroundColor: "transparent",
     color: "#E0E0E0",
@@ -110,5 +111,18 @@ export const TotalCartItemsChip = styled(Chip)(() => ({
   marginTop: "5px",
   ".MuiChip-label": {
     padding: 0,
+  },
+}));
+
+export const SignUpButton = styled(Button)(() => ({
+  textTransform: "capitalize",
+  color: "white",
+  padding: 0,
+  fontSize: "0.8rem",
+  fontWeight: 700,
+  height: "max-content",
+  ":hover": {
+    backgroundColor: "transparent",
+    opacity: "0.8",
   },
 }));

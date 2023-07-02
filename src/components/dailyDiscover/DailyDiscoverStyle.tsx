@@ -61,7 +61,6 @@ export const PriceContainer = styled("div")(() => ({
   display: "flex",
   alignItems: "baseline",
   paddingLeft: "0px",
-  gap: "3px",
 }));
 
 export const DiscountedPrice = styled(Typography)(() => ({
