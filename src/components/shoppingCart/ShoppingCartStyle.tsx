@@ -180,7 +180,7 @@ export const StyledDataGrid = styled(DataGrid)(() => ({
   ".MuiButtonBase-root-MuiCheckbox-root:hover": {
     backgroundColor: "none",
   },
-  ".Mui-checked": {
+  ".MuiDataGrid-checkboxInput.Mui-checked": {
     color: "#ee4d2d",
   },
   ".MuiDataGrid-columnHeader:focus-within": {
@@ -191,6 +191,9 @@ export const StyledDataGrid = styled(DataGrid)(() => ({
   },
   ".MuiDataGrid-cell:focus-within": {
     outline: "none",
+  },
+  ".MuiDataGrid-checkboxInput:hover": {
+    backgroundColor: "transparent",
   },
 }));
 

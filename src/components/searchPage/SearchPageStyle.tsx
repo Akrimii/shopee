@@ -33,6 +33,7 @@ export const SideBarBox = styled(Box)(() => ({
 }));
 
 export const RatingButton = styled(Button)(() => ({
+  marginBottom: "3px",
   textTransform: "capitalize",
   color: "#757575",
   borderRadius: "30px",
