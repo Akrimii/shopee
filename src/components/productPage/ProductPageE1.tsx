@@ -8,11 +8,11 @@ interface Props {
 }
 
 function ProductPageE1({ product }: Props) {
-  const [displayImage, setDisplayImage] = useState<string>(product.thumbnail);
+  const [displayImage, setDisplayImage] = useState<string | null>(null);
   return (
     <>
       <BigPictureContainer disableGutters>
-        <BigImage src={displayImage} />
+        <BigImage src={!displayImage ? product.thumbnail : displayImage} />
       </BigPictureContainer>
       <ImageList
         variant="standard"
@@ -29,7 +29,7 @@ function ProductPageE1({ product }: Props) {
           <ImageListItem
             key={image}
             onMouseEnter={() => setDisplayImage(image)}
-            onMouseLeave={() => setDisplayImage(product.thumbnail)}
+            onMouseLeave={() => setDisplayImage(null)}
             sx={{
               border: "2px solid white",
               ":hover": {
