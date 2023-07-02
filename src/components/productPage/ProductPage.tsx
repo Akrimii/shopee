@@ -44,7 +44,7 @@ function ProductPage({
 }: Props) {
   const condition = product.category;
   const filteredProducts = where(products, { category: condition });
-  const totalRatings = product.stock - 1;
+  const totalRatings = Math.floor(product.stock / 2);
 
   const [favourite, setFavourite] = useState<Product[]>([]);
 

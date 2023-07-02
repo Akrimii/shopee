@@ -109,6 +109,7 @@ function App() {
     setLogin(false);
     setLoggedInUser("");
     setCarts([]);
+    navigate("/");
   }
   useEffect(() => {
     const timer = setTimeout(() => {

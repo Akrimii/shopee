@@ -23,7 +23,9 @@ function ProductPageE3({ product }: Props) {
         <TableBody>
           <TableRowNoBorder>
             <TableCell>Category</TableCell>
-            <TableCell>{categoryData}</TableCell>
+            <TableCell sx={{ textTransform: "capitalize" }}>
+              {categoryData}
+            </TableCell>
           </TableRowNoBorder>
 
           <TableRowNoBorder>

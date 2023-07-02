@@ -45,6 +45,7 @@ export const StyledDiv = styled("div")(() => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
+  paddingBottom: "20px",
 }));
 
 export const NoResultsContainer = styled(Container)(() => ({
