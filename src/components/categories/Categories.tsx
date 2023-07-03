@@ -16,11 +16,11 @@ function Categories() {
 
   return (
     <Div>
-      <CategoriesContainer disableGutters>
+      <CategoriesContainer>
         <CategoryHeader variant="subtitle1" sx={{ color: "#EE4D2D" }}>
           CATEGORIES
         </CategoryHeader>
-        {categories.map((category: string, index: number) => (
+        {categories.slice(0, 18).map((category: string, index: number) => (
           <Link
             to="/search/category/:id"
             key={index}

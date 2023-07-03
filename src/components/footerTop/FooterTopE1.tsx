@@ -7,7 +7,7 @@ import {
 
 function FooterTopE1() {
   return (
-    <StyledContainer disableGutters>
+    <StyledContainer>
       <EachSection>
         <Title>
           SHOPEE MALAYSIA | AN ONLINE SHOPPING PLATFORM WITH GREAT DEALS

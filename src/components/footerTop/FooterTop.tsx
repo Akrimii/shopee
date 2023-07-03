@@ -10,10 +10,7 @@ function FooterTop() {
   return (
     <WhiteBox>
       <FooterTopE1 />
-      <StyledContainer
-        disableGutters
-        sx={{ borderBottom: "none", paddingBottom: "50px" }}
-      >
+      <StyledContainer sx={{ borderBottom: "none", paddingBottom: "50px" }}>
         <Title>Categories</Title>
         <Breadcrumbs separator="|" maxItems={100}>
           {categories.map((category) => (

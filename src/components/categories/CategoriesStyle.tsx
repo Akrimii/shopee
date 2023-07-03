@@ -7,10 +7,10 @@ export const Div = styled("div")(() => ({
 export const CategoriesContainer = styled(Container)(() => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "space-between",
   color: "gray",
   minWidth: "1200px",
-  height: "380px",
+  height: "406px",
   backgroundColor: "white",
   flexWrap: "wrap",
   alignContent: "flex-start",
@@ -27,7 +27,7 @@ export const CategoryHeader = styled(Typography)(() => ({
 
 export const CategoryCard = styled(Card)(() => ({
   height: 150,
-  width: 118.6,
+  width: 126.5,
   paddingTop: "10px",
   borderRadius: "1px",
   display: "flex",
