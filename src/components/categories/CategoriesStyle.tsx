@@ -10,10 +10,11 @@ export const CategoriesContainer = styled(Container)(() => ({
   justifyContent: "space-between",
   color: "gray",
   minWidth: "1200px",
-  height: "406px",
+  height: "min-content",
   backgroundColor: "white",
   flexWrap: "wrap",
   alignContent: "flex-start",
+  paddingBottom: "24px",
 }));
 
 export const CategoryHeader = styled(Typography)(() => ({
